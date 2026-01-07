@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Roammate Theme for Wanderlog",
+  "version": "1.0",
+  "description": "Transforms Wanderlog's UI into the clean, minimalist, flat-design language of Roammate.",
+  "content_scripts": [
+    {
+      "matches": ["*://wanderlog.com/*", "*://www.wanderlog.com/*"],
+      "css": ["roammate-theme.css"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "roammate-theme@mojolog.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}
