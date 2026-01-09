@@ -1,0 +1,78 @@
+/* MINIMAL STABLE ROAMMATE THEME */
+:root {
+  --rm-emerald: #10b981;
+  --rm-dark: #0f172a;
+  --rm-bg: #f1f5f9;
+  --rm-surface: #fff;
+  --rm-border: #e2e8f0;
+  --rm-font: system-ui, -apple-system, sans-serif;
+  --rm-topbar: 48px;
+  --rm-navrow: 36px;
+}
+
+/* ── 1. Hide Upsells & Clutter (SAFE) ── */
+.ProBadge, .ProBadgeCircular,
+[class*="upsell" i],
+[class*="signupBanner"],
+a[href*="/pro"],
+.PlanPageFloatingActionButtons__bottomContainer,
+[class*="assistant" i],
+.ExploreCarousel {
+  display: none !important;
+}
+
+/* ── 3. Top Bar Spacing (SAFE) ── */
+.PlanPageOrPlacesList__container {
+  padding-top: calc(var(--rm-topbar) + var(--rm-navrow)) !important;
+}
+
+/* ── 4. Roammate Top Bar ── */
+#rm-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 2147483647;
+  background: var(--rm-dark); display: flex; flex-direction: column;
+}
+#rm-bar .rm-row1 {
+  display: flex; align-items: center; height: var(--rm-topbar);
+  padding: 0 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+#rm-bar .rm-logo {
+  font-weight: 800; font-size: 16px; color: var(--rm-emerald);
+  letter-spacing: -0.5px; margin-right: 24px; flex-shrink: 0;
+}
+#rm-bar .rm-nav {
+  display: flex; gap: 4px; align-items: center; overflow-x: auto; scrollbar-width: none;
+}
+#rm-bar .rm-nav::-webkit-scrollbar { display: none; }
+.rm-nav-btn {
+  padding: 6px 14px; border: none; border-radius: 6px;
+  background: transparent; color: rgba(255,255,255,0.45);
+  font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.rm-nav-btn:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); }
+.rm-nav-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
+
+#rm-bar .rm-row2 {
+  display: flex; align-items: center; height: var(--rm-navrow);
+  padding: 0 16px; gap: 2px; overflow-x: auto; scrollbar-width: none;
+  background: rgba(0,0,0,0.15);
+}
+#rm-bar .rm-row2::-webkit-scrollbar { display: none; }
+.rm-tab {
+  flex-shrink: 0; padding: 4px 14px; border-radius: 6px;
+  border: none; background: transparent; color: rgba(255,255,255,0.45);
+  font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.rm-tab:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); }
+.rm-tab.active { background: var(--rm-emerald); color: #fff; }
+
+/* ── 5. JS Hidden State ── */
+.rm-hide { display: none !important; }
+
+/* ── 6. Reorder Buttons ── */
+.rm-reorder { display: inline-flex; gap: 2px; margin-left: 8px; }
+.rm-reorder button {
+  width: 22px; height: 22px; border: 1px solid var(--rm-border); border-radius: 4px;
+  background: var(--rm-bg); color: #64748b; font-size: 11px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; padding: 0;
+}
+.rm-reorder button:hover { background: #d1fae5; color: var(--rm-dark); border-color: var(--rm-emerald); }
